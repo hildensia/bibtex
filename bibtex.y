@@ -75,6 +75,7 @@ tags : tag            { $$ = []*bibTag{$1} }
 
 // Parse is the entry point to the bibtex parser.
 func Parse(r io.Reader) (*BibTex, error) {
+  bibs = NewBibTex()
 	l := NewLexer(r)
 	bibtexParse(l)
 	select {
